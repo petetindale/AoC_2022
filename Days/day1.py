@@ -1,4 +1,7 @@
 
+from posixpath import split
+import functools as fn
+
 test_str = [
     "1000\n",
     "2000\n",
@@ -13,14 +16,19 @@ test_str = [
     "8000\n",
     "9000\n",
     "\n",
-    "10000\n"
+    "10000"
 ]
 
+def calorie_count(list_of_strings:list):
+    carriers = list(map(lambda x:(x.strip()),list_of_strings))
+    carriers2 = fn.reduce(lambda x,y: x +y , carriers, [0])
+    print(carriers2)
 
 
+
+#Common Code.
 def run_day(list_of_strings:list):
-    print(list_of_strings)
-
+    calorie_count(list_of_strings)
 
 #test
 run_day(test_str)
